@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DajoChicking.Clocking"
+             BackgroundColor="White"
+             Title="Clocking" 
+             Icon="ic_alarm_black_24dp.png"
+             xmlns:converters="clr-namespace:DajoChicking.Converters; assembly= DajoChicking"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+
+
+    <!--Page.Resources>
+    <converters:DateTimeConverter
+      x:Key="DateTimeConverter"/>
+  </Page.Resources-->
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                iOS="10, 20, 10, 10"
+                Android="10, 10, 10, 10"
+                WinPhone="10, 10, 10, 10" />
+    </ContentPage.Padding>
+    <ContentPage.Content>
+
+        <StackLayout Padding="5,0"
+                 Margin="0"
+                 VerticalOptions="Center"
+                 >
+
+            <controls:CircleImage Source="icon.png"  x:Name="profileImage">
+                <controls:CircleImage.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android, iOS">55</On>
+                        <On Platform="WinPhone">75</On>
+                    </OnPlatform>
+                </controls:CircleImage.WidthRequest>
+                <controls:CircleImage.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android, iOS">55</On>
+                        <On Platform="WinPhone">75</On>
+                    </OnPlatform>
+                </controls:CircleImage.HeightRequest>
+            </controls:CircleImage>
+            <Label FontSize="Small"
+                   HorizontalOptions="Center"
+                   Text="Name Surname" />
+
+
+            <Frame>
+
+
+
+                <StackLayout>
+
+                    <DatePicker x:Name="datePicker" IsVisible="false"/>
+                    <TimePicker x:Name="timePicker" IsVisible="false"/>
+
+                    <Label 
+            Text="{Binding Time, StringFormat='{}{0:hh\\:mm}'} 
+            Source={x:Reference timePicker}"
+            FontSize="Large"
+            HorizontalOptions="Center">
+                    </Label>
+
+                    <Label Text="{Binding Date, StringFormat='{0:MMMM dd, yyyy}' Source={x:Reference datePicker}} "  HorizontalOptions="Center"></Label>
+
+                    <StackLayout>
+
+                        <!--Label x:Name="Time" 
+                    Text="{Binding Time, StringFormat='{}{0:hh\\:mm}'}"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                  </Label-->
+
+                        <Label
+                    Text="{Binding Date, StringFormat='{0:MMMM dd, yyyy}'}"
+                    FontSize="Small"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                        </Label>
+
+                        <Label
+                    Text ="{Binding Location}"
+                    FontSize="Small"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                        </Label>
+
+                        <!--DatePicker
+                    Header="date"
+                    Margin="10"
+                    FontSize="24"
+                    Date="{Binding date, Converter={StaticResource DateTimeConverter}, Mode=TwoWay}"/-->
+
+                        <!--Label
+                    Text="{Binding Time, StringFormat='{}{0:hh\\:mm}'}"
+                    FontSize="Small"
+                    zontalOptions="Center"
+                    VerticalOptions="Center"></Label-->
+
+
+                        <Button Text="Clock IN"
+                    TextColor="White"
+                    BackgroundColor="Green"
+                    HorizontalOptions="Fill"
+                    BorderRadius = "5"
+                    BorderWidth = "5"
+                    Clicked="clockin"/>
+
+                        <Button Text="Clock Out"
+                    TextColor="White"
+                    BackgroundColor="Red"
+                    HorizontalOptions="Fill"
+                    BorderRadius = "5"
+                    BorderWidth = "5"
+                    Clicked="clockout"/>
+
+                        <!-- <Capabilities>
+                    < DeviceCapability elements must follow Capability elements (if present) >
+                    <DeviceCapability Name="in_location"/>
+                  </Capabilities-->
+
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+
+
+</ContentPage>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DajoChicking"
+             x:Class="DajoChicking.MainPage"
+             BackgroundColor="White">
+
+      <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="10, 20, 10, 10"
+                    Android="10, 10, 10, 10"
+                    WinPhone="10, 10, 10, 10" />
+      </ContentPage.Padding>
+    
+      <ContentPage.Content>
+            <StackLayout Padding="5,0"
+                         Margin="0"
+                         VerticalOptions="Center">
+            
+                
+            <Image  x:Name="image" />
+                
+            <Frame>          
+                  <StackLayout>
+
+                    <ActivityIndicator x:Name="loginPreogressBar"
+                                        IsVisible="False"
+                                        IsRunning="False"
+                                        Color="Black" />
+                      
+                    <Label FontSize="Large"
+                                 HorizontalOptions="Center"
+                                 Text="Login" />
+                      
+            
+                        <Entry Placeholder="Username" 
+                               HorizontalOptions="Fill" 
+                               x:Name="txtUsername"/>
+            
+                        <Entry Placeholder="Password"
+                               IsPassword="true" 
+                               HorizontalOptions="Fill"
+                                x:Name="txtPassword"/>
+            
+                        <Button Text="Log In" 
+                                TextColor="White" 
+                                BackgroundColor="Gray"
+                                HorizontalOptions="Fill"
+                                Clicked="login"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        
+                        <Label Text="Register" TextColor="Blue" HorizontalOptions="StartAndExpand"
+                         VerticalOptions="CenterAndExpand" Grid.Row="0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_Policy"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        
+                        <Label Text="Forgot password" TextColor="Blue" HorizontalOptions="EndAndExpand"
+                         VerticalOptions="CenterAndExpand" Grid.Row="0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="forgot_password"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ContentPage.Content>
+</ContentPage>

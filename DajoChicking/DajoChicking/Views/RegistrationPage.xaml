@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DajoChicking.Views.RegistrationPage"
+             xmlns:custom="clr-namespace:XFormsRadioButton.CustomControls;assembly=XFormsRadioButton"
+             BackgroundImage="logo.png">
+
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="10, 20, 10, 10"
+                    Android="10, 10, 10, 10"
+                    WinPhone="10, 10, 10, 10" />
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <StackLayout Padding="5,0"
+                         Margin="0"
+                         VerticalOptions="Center"
+                     >
+            <Image  x:Name="image" />
+
+            <Frame>
+                <ScrollView>
+                <StackLayout>
+                    <Label FontSize="Large"
+                                 HorizontalOptions="Center"
+                                 Text="Register" />
+
+                    <Entry Placeholder="Name" 
+                               HorizontalOptions="Fill" 
+                               x:Name="txt_name" />
+
+                    <Entry Placeholder="Surname"
+                               HorizontalOptions="Fill"
+                                x:Name="txt_surname"/>
+
+                    <Entry Placeholder="ID Number"
+                               HorizontalOptions="Fill"
+                                x:Name="txt_id_number"/>
+
+                    <Entry Placeholder="Contact number"
+                               HorizontalOptions="Fill"
+                                x:Name="txt_contact"/>
+
+                    <Entry Placeholder="Email address"
+                               HorizontalOptions="Fill"
+                                x:Name="txt_email"/>
+
+                    <Entry Placeholder="Job title"
+                               HorizontalOptions="Fill"
+                                x:Name="txt_job_title"/>
+
+                    <Entry Placeholder="Password"
+                               IsPassword="true" 
+                               HorizontalOptions="Fill"
+                                x:Name="txt_password"/>
+
+                    <Button Text="Register" 
+                                TextColor="White" 
+                                BackgroundColor="Gray"
+                                HorizontalOptions="Fill"
+                                Clicked="sign_up"/>
+
+                </StackLayout>
+                    </ScrollView>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

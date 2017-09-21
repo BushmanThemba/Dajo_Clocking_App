@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:ViewModels="clr-namespace:DajoChicking.ViewModels; assembly=DajoChicking"
+             x:Class="DajoChicking.ViewWorkersHistory"
+             BackgroundColor="White"
+
+             Title="Workers"
+             Icon="ic_supervisor_account_black_24dp.png">
+
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                iOS="10, 20, 10, 10"
+                Android="10, 10, 10, 10"
+                WinPhone="10, 10, 10, 10" />
+    </ContentPage.Padding>
+
+    <ContentPage.BindingContext>
+        <ViewModels:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <ListView x:Name="MainListView" 
+                  IsPullToRefreshEnabled="true"
+              ItemsSource="{Binding Employees}"
+              ItemSelected="OnItemSelected"
+              HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Grid BackgroundColor="White"
+                              HeightRequest="1"/>
+
+                            <StackLayout Orientation="Vertical" 
+                                 Padding="40">
+                                <Label Text="{Binding name}" Font="Bold"/>
+                                <Label Text="{Binding emp_id}" Font="Bold" Opacity="0.6"/>
+
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical" 
+                                 Padding="40" >
+                                <Label Text="{Binding surname}" Font="Bold"/>
+                                <Label Text="{Binding job_title}" Font="Bold" Opacity="0.6"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
